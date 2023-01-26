@@ -28,6 +28,7 @@ const imageSlider = (function () {
       element.style.height = "100%";
       element.style.color = "white";
       if (element === buttonRight) element.style.right = 0;
+      if (element === buttonLeft) element.style.left = 0;
 
       element.addEventListener("mouseover", (event) => {
         event.stopPropagation();
@@ -57,11 +58,18 @@ const imageSlider = (function () {
       element.style.display = "flex";
       element.style.justifyContent = "center";
     }
+    if (element === slider) {
+      element.style.display = 'flex';
+      element.style.backgroundColor = "black";
+      element.style.position = "relative";
+      element.style.justifyContent = "center";
+    }
   }
 
   setStyle(buttonLeft);
   setStyle(buttonRight);
   setStyle(miniButtonBase);
+  setStyle(slider);
 
   // Image manipulation functions
   
@@ -69,11 +77,24 @@ const imageSlider = (function () {
 
   let imageCounter = 0;
 
+  function appendRemoveImage () {
+    if (slider.querySelector('img')){
+      const image = slider.querySelector('img');
+      slider.removeChild(image);
+    }
+    slider.appendChild(images[imageCounter])
+    imageCounter += 1;
+    if (imageCounter === images.length) {
+      console.log('activated');
+      imageCounter = 0;
+    }
+  }
+
   function setImage(imageArray) {
     imageArray.forEach((image) => {
-      image.style.objectFit = 'contain';
       images.push(image);
     })
+    setInterval(appendRemoveImage, 5000);
   }
 
   return { slider, setImage };
