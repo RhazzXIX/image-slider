@@ -1,0 +1,38 @@
+* {
+  color: red;
+  outline: 1px solid black;
+}
+
+div#Image-Slider {
+  height: 500px;
+  width: 800px;
+  margin: auto;
+  background-color: white;
+  position: relative;
+}
+
+button#sliderLeftButton {
+  /* appearance: "none"; */
+  background-color: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 48%;
+  border-radius: 50%;
+  /* border: 0; */
+}
+
+button#sliderRightButton {
+  background-color: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 48%;
+  right: 0;
+  border-radius: 50%;
+}
+
+ul#miniButtonContainer {
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 30px);
+  height: 18px;
+  width: 60px;
+  border-radius: 8px;
+}
