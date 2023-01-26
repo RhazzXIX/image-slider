@@ -63,8 +63,17 @@ const imageSlider = (function () {
   setStyle(buttonRight);
   setStyle(miniButtonBase);
 
+  // Image manipulation functions
+  
+  const images = [];
+
+  let imageCounter = 0;
+
   function setImage(imageArray) {
-    console.log(imageArray);
+    imageArray.forEach((image) => {
+      image.style.objectFit = 'contain';
+      images.push(image);
+    })
   }
 
   return { slider, setImage };
